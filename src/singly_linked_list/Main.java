@@ -1,79 +1,31 @@
 package singly_linked_list;
 
 public class Main {
-	public static void main(String args[]) {
-		
-		Generics_Linked_List<Integer> list = new Generics_Linked_List<>();
-		System.out.println(list.isempty());
-		list.addnewData(10);
-		list.addnewData(20);
-		list.addnewData(30);
-		list.addnewData(40);
-		list.addnewData(50);
-		list.addnewData(60);
-		list.addnewData(70);
-		list.addnewData(80);
-		list.addnewData(90);
-		list.addnewData(100);
-		list.addnewData(110);
-		list.display();
-		list.remove();
-		list.display();
-		list.remove();
-		list.remove();
-		System.out.println(list.isempty());
-		list.remove();
-		list.remove();
-		list.remove();
-		list.remove();
-		list.remove();
-		
-		list.remove();
-		list.remove();
-		list.remove();
-		list.display();
-		System.out.println(list.isempty());
-		
-		Generics_Linked_List<String> stringLIst = new Generics_Linked_List<>();
-		System.out.println(stringLIst.isempty());
-		
-		stringLIst.addnewData("Megatron");
-		stringLIst.addnewData("Optimus Prime");
-		stringLIst.addnewData("Vector Prime");
-		stringLIst.addnewData("Iron Hide");
-		stringLIst.addnewData("Bumbble Bee");
-		
-		stringLIst.display();
-		stringLIst.middleelements();
+
+	public static void main(String[] args) {
+		List<Integer> list = new LinkedList<>();
+		list.add(3); // [3]
+		list.add(5); // [3, 5]
+		list.add(7); // [3, 5, 7]
+		System.out.println(list);
+		list.remove(0); // [5, 7]
+		System.out.println(list);
+		list.remove(1); // [5]
+		list.add(9); // [5, 9]
+		for (int i = 0; i < list.size(); ++i)
+			System.out.print(list.get(i) + " ");
+		System.out.println();
+		System.out.println();
+
+		Stack<Integer> stack = new LinkedList<>();
+		stack.push(3); // [3]
+		stack.push(5); // [5, 3]
+		stack.push(7); // [7, 5, 3]
+		System.out.println(stack);
+		stack.reverse(); // [3, 5, 7]
+		System.out.println(stack);
+		System.out.println(stack.top());
+		stack.pop(); // [5, 7]
+		System.out.println(stack);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
