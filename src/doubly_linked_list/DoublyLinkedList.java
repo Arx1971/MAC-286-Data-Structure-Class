@@ -59,19 +59,6 @@ public class DoublyLinkedList<AnyType> {
 		System.out.println("adding: " + element);
 	}
 
-	public void iterateForward() {
-
-		System.out.println("iterating forward..");
-		Node newNode = head;
-		while (newNode != null) {
-			if (newNode.next != null)
-				System.out.print(newNode.element + " -> ");
-			else
-				System.out.println(newNode.element);
-			newNode = newNode.next;
-		}
-	}
-	
 	public AnyType removeFront() {
 		if (size == 0)
 			throw new NoSuchElementException();
@@ -93,6 +80,20 @@ public class DoublyLinkedList<AnyType> {
 		System.out.println("deleted: " + newNode.element);
 		return newNode.element;
 	}
+	
+	public void iterateForward() {
+
+		System.out.println("iterating forward..");
+		Node newNode = head;
+		while (newNode != null) {
+			if (newNode.next != null)
+				System.out.print(newNode.element + " -> ");
+			else
+				System.out.println(newNode.element);
+			newNode = newNode.next;
+		}
+	}
+
 
 	public void iterateBackward() {
 
