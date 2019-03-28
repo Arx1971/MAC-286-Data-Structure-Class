@@ -110,10 +110,22 @@ public class DoublyLinkedList<AnyType> {
 
 	public static void main(String argv[]) {
 
+		/* Following code will perform Doubly Linked List Basic Operation 
+		 * addFirst(@param)
+		 * addLast(@param)
+		 * removeLast(@param)
+		 * removeFirst(@param)
+		 * iterateForward();
+		 * iterateBackward();
+		 */
+		
+		// This is a generic code, you are required to using wrapper class object(Integer, Double.....)
+		
+		
 		DoublyLinkedList<Integer> dll = new DoublyLinkedList<Integer>();
-		dll.addFirst(10);
-		dll.addFirst(34);
-		dll.addLast(56);
+		dll.addFirst(10); 		// adding 10 to list 10
+		dll.addFirst(34);	 	// adding 34 to list 34 -> 10 (adding data in front of the list)
+		dll.addLast(56);		// adding 56 to list 34 -> 10 -> 56
 		dll.addLast(364);
 		dll.iterateForward();
 		dll.removeFirst();
