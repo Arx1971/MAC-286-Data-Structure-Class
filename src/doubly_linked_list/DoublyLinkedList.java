@@ -1,6 +1,5 @@
 package doubly_linked_list;
 
-
 import java.util.NoSuchElementException;
 
 public class DoublyLinkedList<AnyType> {
@@ -18,7 +17,7 @@ public class DoublyLinkedList<AnyType> {
 		Node next;
 		Node prev;
 
-		public Node(AnyType element, Node next, Node prev) {
+		public Node(AnyType element, Node next, Node prev) {	// Constructor for Node
 			this.element = element;
 			this.next = next;
 			this.prev = prev;
@@ -33,7 +32,7 @@ public class DoublyLinkedList<AnyType> {
 		return size == 0;
 	}
 
-	public void addFirst(AnyType element) {
+	public void addFront(AnyType element) {
 		Node newNode = new Node(element, head, null);
 		if (head != null) {
 			head.prev = newNode;
@@ -46,7 +45,7 @@ public class DoublyLinkedList<AnyType> {
 		System.out.println("adding: " + element);
 	}
 
-	public void addLast(AnyType element) {
+	public void addRear(AnyType element) {
 
 		Node newNode = new Node(element, null, tail);
 		if (tail != null) {
@@ -72,6 +71,28 @@ public class DoublyLinkedList<AnyType> {
 			newNode = newNode.next;
 		}
 	}
+	
+	public AnyType removeFront() {
+		if (size == 0)
+			throw new NoSuchElementException();
+		Node newNode = head;
+		head = head.next;
+		head.prev = null;
+		size--;
+		System.out.println("deleted: " + newNode.element);
+		return newNode.element;
+	}
+
+	public AnyType removeRear() {
+		if (size == 0)
+			throw new NoSuchElementException(); 
+		Node newNode = tail;
+		tail = tail.prev;
+		tail.next = null;
+		size--;
+		System.out.println("deleted: " + newNode.element);
+		return newNode.element;
+	}
 
 	public void iterateBackward() {
 
@@ -86,35 +107,15 @@ public class DoublyLinkedList<AnyType> {
 		}
 	}
 
-	public AnyType removeFirst() {
-		if (size == 0)
-			throw new NoSuchElementException();
-		Node newNode = head;
-		head = head.next;
-		head.prev = null;
-		size--;
-		System.out.println("deleted: " + newNode.element);
-		return newNode.element;
-	}
-
-	public AnyType removeLast() {
-		if (size == 0)
-			throw new NoSuchElementException();
-		Node newNode = tail;
-		tail = tail.prev;
-		tail.next = null;
-		size--;
-		System.out.println("deleted: " + newNode.element);
-		return newNode.element;
-	}
+	
 
 	public static void main(String argv[]) {
 
-		/* Following code will perform Doubly Linked List Basic Operation 
+		/* This code will perform Doubly Linked List following  Basic Operation 
 		 * addFirst(@param)
 		 * addLast(@param)
-		 * removeLast(@param)
-		 * removeFirst(@param)
+		 * removeRear(@param)
+		 * removeFront(@param)
 		 * iterateForward();
 		 * iterateBackward();
 		 */
@@ -123,13 +124,13 @@ public class DoublyLinkedList<AnyType> {
 		
 		
 		DoublyLinkedList<Integer> dll = new DoublyLinkedList<Integer>();
-		dll.addFirst(10); 		// adding 10 to list 10
-		dll.addFirst(34);	 	// adding 34 to list 34 -> 10 (adding data in front of the list)
-		dll.addLast(56);		// adding 56 to list 34 -> 10 -> 56
-		dll.addLast(364);
+		dll.addFront(10); 		// adding 10 to list 10
+		dll.addFront(34);	 	// adding 34 to list 34 -> 10 (adding data in front of the list)
+		dll.addRear(56);		// adding 56 to list 34 -> 10 -> 56
+		dll.addRear(364);
 		dll.iterateForward();
-		dll.removeFirst();
-		dll.removeLast();
+		dll.removeFront();
+		dll.removeRear();
 		dll.iterateBackward();
 	}
 }
