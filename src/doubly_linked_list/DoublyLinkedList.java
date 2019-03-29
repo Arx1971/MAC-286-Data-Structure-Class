@@ -13,12 +13,12 @@ public class DoublyLinkedList<AnyType> {
 	}
 
 	private class Node {
-		AnyType element;
+		AnyType data;
 		Node next;
 		Node prev;
 
-		public Node(AnyType element, Node next, Node prev) {	// Constructor for Node
-			this.element = element;
+		public Node(AnyType data, Node next, Node prev) {	// Constructor for Node
+			this.data = data;
 			this.next = next;
 			this.prev = prev;
 		}
@@ -32,8 +32,8 @@ public class DoublyLinkedList<AnyType> {
 		return size == 0;
 	}
 
-	public void addFront(AnyType element) {
-		Node newNode = new Node(element, head, null);
+	public void addFront(AnyType data) {
+		Node newNode = new Node(data, head, null);
 		if (head != null) {
 			head.prev = newNode;
 		}
@@ -42,12 +42,12 @@ public class DoublyLinkedList<AnyType> {
 			tail = newNode;
 		}
 		size++;
-		System.out.println("adding: " + element);
+		System.out.println("adding: " + data);
 	}
 
-	public void addRear(AnyType element) {
+	public void addRear(AnyType data) {
 
-		Node newNode = new Node(element, null, tail);
+		Node newNode = new Node(data, null, tail);
 		if (tail != null) {
 			tail.next = newNode;
 		}
@@ -56,7 +56,7 @@ public class DoublyLinkedList<AnyType> {
 			head = newNode;
 		}
 		size++;
-		System.out.println("adding: " + element);
+		System.out.println("adding: " + data);
 	}
 
 	public AnyType removeFront() {
@@ -66,8 +66,8 @@ public class DoublyLinkedList<AnyType> {
 		head = head.next;
 		head.prev = null;
 		size--;
-		System.out.println("deleted: " + newNode.element);
-		return newNode.element;
+		System.out.println("deleted: " + newNode.data);
+		return newNode.data;
 	}
 
 	public AnyType removeRear() {
@@ -77,8 +77,8 @@ public class DoublyLinkedList<AnyType> {
 		tail = tail.prev;
 		tail.next = null;
 		size--;
-		System.out.println("deleted: " + newNode.element);
-		return newNode.element;
+		System.out.println("deleted: " + newNode.data);
+		return newNode.data;
 	}
 	
 	public void iterateForward() {
@@ -87,9 +87,9 @@ public class DoublyLinkedList<AnyType> {
 		Node newNode = head;
 		while (newNode != null) {
 			if (newNode.next != null)
-				System.out.print(newNode.element + " -> ");
+				System.out.print(newNode.data + " -> ");
 			else
-				System.out.println(newNode.element);
+				System.out.println(newNode.data);
 			newNode = newNode.next;
 		}
 	}
@@ -101,37 +101,10 @@ public class DoublyLinkedList<AnyType> {
 		Node newNode = tail;
 		while (newNode != null) {
 			if (newNode.prev != null)
-				System.out.print(newNode.element + " -> ");
+				System.out.print(newNode.data + " -> ");
 			else
-				System.out.println(newNode.element);
+				System.out.println(newNode.data);
 			newNode = newNode.prev;
 		}
-	}
-
-	
-
-	public static void main(String argv[]) {
-
-		/* This code will perform Doubly Linked List following  Basic Operation 
-		 * addFirst(@param)
-		 * addLast(@param)
-		 * removeRear(@param)
-		 * removeFront(@param)
-		 * iterateForward();
-		 * iterateBackward();
-		 */
-		
-		// This is a generic code, you are required to using wrapper class object(Integer, Double.....)
-		
-		
-		DoublyLinkedList<Integer> dll = new DoublyLinkedList<Integer>();
-		dll.addFront(10); 		// adding 10 to list 10
-		dll.addFront(34);	 	// adding 34 to list 34 -> 10 (adding data in front of the list)
-		dll.addRear(56);		// adding 56 to list 34 -> 10 -> 56
-		dll.addRear(364);
-		dll.iterateForward();
-		dll.removeFront();
-		dll.removeRear();
-		dll.iterateBackward();
 	}
 }
