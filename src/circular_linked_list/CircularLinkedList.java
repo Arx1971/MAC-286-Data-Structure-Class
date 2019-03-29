@@ -1,5 +1,4 @@
 package circular_linked_list;
-
 import java.util.NoSuchElementException;
 
 public class CircularLinkedList<AnyType> {

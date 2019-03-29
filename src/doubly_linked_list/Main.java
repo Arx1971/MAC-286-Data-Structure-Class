@@ -13,8 +13,7 @@ public class Main {
 		 * iterateBackward();
 		 */
 		
-		// This is a generic code, you are required to using wrapper class object(Integer, Double.....)
-		
+		// This is a generic code, you are required to using wrapper class object(Integer, Double.....)	
 		
 		DoublyLinkedList<Integer> doublylinkedlist = new DoublyLinkedList<Integer>();
 		doublylinkedlist.addFront(10); 		// adding 10 to list 10

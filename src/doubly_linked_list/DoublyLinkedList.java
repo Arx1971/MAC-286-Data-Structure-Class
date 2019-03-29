@@ -1,5 +1,4 @@
 package doubly_linked_list;
-
 import java.util.NoSuchElementException;
 
 public class DoublyLinkedList<AnyType> {
