@@ -5,7 +5,7 @@ Room: B208, B - Building
 Email: arx.1971@gmail.com
 # Tutoring Hours: Monday (1pm - 2pm) && Wednesday (6pm - 7pm).
 
-Also I am available all day in B - 208 (Monday, Wednesday) Feel free to stop by anytime, Makesure send me an Eamil. 
+Also I am available all day in B - 208 (Monday, Wednesday) Feel free to stop by anytime, Makesure send me an Email. 
 
 # Contents
 
