@@ -1,5 +1,6 @@
 # MAC_286_Data_Structure
-Adnan Rahin \n
+Adnan Rahin
+
 Room: B208, B - Building  
 Email: arx.1971@gmail.com
 # Tutoring Hours: Monday (1pm - 2pm) && Wednesday (6pm - 7pm).
