@@ -15,3 +15,4 @@ Problem solving is a big part of this course, Check LeetCode, Codeforce, CodeChe
 1. Doubly Linked List
 2. Singly Linked List, and implementing Stack and List Interface using LinkedList Class.
 3. Circular Linked List
+4. Binary Search Tree
