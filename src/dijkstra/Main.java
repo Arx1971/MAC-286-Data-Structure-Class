@@ -14,6 +14,26 @@ public class Main {
 		// this input is for directed graph try to do undirected by your self. 
 		
 		graph(new int[][] { { 2, 1, 1 }, { 2, 3, 5 }, { 3, 4, 1 }, { 4, 2, 1 }, { 1, 4, 1 } }, 4, 2);
+		
+		/*		
+		 * 		following picture represent the above graph. 		
+		 * 
+		 * 				1	
+		 * 		2----------->1
+		 *		|^			 |
+		 *		| \			 |
+		 *	5	|  \		 |1
+		 *		|	\		 | 
+		 * 		|	 \	1	 |
+		 * 		|	  \		 |
+		 * 		|	   \	 | 
+		 * 		|	    \	 |
+		 * 		|	  	 \	 |
+		 * 		|	      \	 |
+		 * 	   \|/	       \\|/
+		 * 		3----------->4
+		 * 				1
+		 * */
 
 	}
 
