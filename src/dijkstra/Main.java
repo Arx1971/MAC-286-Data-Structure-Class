@@ -11,29 +11,10 @@ public class Main {
 
 	public static void main(String args[]) {
 
-		// time complexity of this code is O(V log E), v is number of vertices and E is number of edges. 
-		
+		// time complexity of this code is O(V log E), v is number of vertices and E is
+		// number of edges.
+		// {src, dst, weight}
 		graph(new int[][] { { 2, 1, 1 }, { 2, 3, 5 }, { 3, 4, 1 }, { 4, 2, 1 }, { 1, 4, 1 } }, 4, 2);
-		
-		/*		
-		 * 		following picture represent the above graph. 		
-		 * 
-		 * 				1	
-		 * 		2----------->1
-		 *		|^			 |
-		 *		| \			 |
-		 *	5	|  \		 |1
-		 *		|	\		 | 
-		 * 		|	 \	1	 |
-		 * 		|	  \		 |
-		 * 		|	   \	 | 
-		 * 		|	    \	 |
-		 * 		|	  	 \	 |
-		 * 		|	      \	 |
-		 * 	   \|/	       \\|/
-		 * 		3----------->4
-		 * 				1
-		 * */
 
 	}
 
@@ -41,7 +22,7 @@ public class Main {
 	public static List<node> adj[];
 
 	@SuppressWarnings("unchecked")
-	
+
 	public static void graph(int[][] times, int N, int K) {
 
 		System.out.println("Number Of nodes: " + N);
@@ -57,10 +38,14 @@ public class Main {
 		for (int[] t : times) {
 			int src = t[0], dst = t[1], w = t[2];
 			adj[src].add(new node(dst, w));
-			
-			// Following lines of code make undirected graph, so you don't need perform n^2 operation in your matrix. 
-			// The purpose of this line is creating a undirected graph. Simply Uncommented this line will give you directed graph. 
-			
+
+			/**
+			 * Following lines of code make undirected graph, so you don't need perform n^2
+			 * operation in your matrix. The purpose of this line is creating a undirected
+			 * graph. Simply Uncommented this line will give you directed graph.
+			 * 
+			 **/
+
 			adj[dst].add(new node(src, w));
 		}
 
@@ -73,23 +58,34 @@ public class Main {
 
 	public static void dijkstra(int src, int N) {
 
-		Set<Integer> visited = new HashSet<>(); // to keep track of visited node you can use boolean array // boolean visited[]
-		
-		PriorityQueue<node> pq = new PriorityQueue<>((a, b) -> (b.weight - a.weight)); // lambda expression nothing but min-heap 
-		
-		// we are adding node onto Priority Queue based on their weight, since node is object, by using lambda expression we are saying add node onto Priority Queue based on their weight
-		
-		pq.add(new node(src, 0));
-		
+		Set<Integer> visited = new HashSet<>(); // to keep track of visited node you can use boolean array // boolean
+												// visited[]
+
+		PriorityQueue<node> pq = new PriorityQueue<>((a, b) -> (b.weight - a.weight));
+		/**
+		 * in lambda expression nothing but adding node based on their weight we are
+		 * adding node onto Priority Queue based on their weight, since node is object,
+		 * by using lambda expression we are saying add node onto Priority Queue based
+		 * on their weight for example lets assume we have Two node object
+		 * 
+		 * Node(destination, weight( or cost)) Node(1, 30) Node(2, 45) in this case
+		 * Node(1, 30) will be root. Since it has lower cost, then Node(2, 45)
+		 **/
+		pq.add(new node(src, 0)); // since Dijkstra algorithms ignore buckle(self loop) edge (depends) we will
+									// assign every source node
+		// distance to 0
+
 		dist[src] = 0;
+
+		// update the distance array 0
 
 		while (!pq.isEmpty()) {
 
 			node n = pq.poll();
 			int u = n.dst;
-			visited.add(u);					// visited[u] = true;
+			visited.add(u); // visited[u] = true;
 
-			for (node i : adj[u]) {
+			for (node i : adj[u]) { // iterate thru the all adjacent vertices.
 
 				int v = i.dst;
 
