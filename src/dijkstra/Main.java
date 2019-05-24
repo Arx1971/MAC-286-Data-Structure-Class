@@ -11,7 +11,7 @@ public class Main {
 
 	public static void main(String args[]) {
 
-		// this input is for directed graph try to do undirected by your self. 
+		// time complexity of this code is O(V log E), v is number of vertices and E is number of edges. 
 		
 		graph(new int[][] { { 2, 1, 1 }, { 2, 3, 5 }, { 3, 4, 1 }, { 4, 2, 1 }, { 1, 4, 1 } }, 4, 2);
 		
@@ -41,6 +41,7 @@ public class Main {
 	public static List<node> adj[];
 
 	@SuppressWarnings("unchecked")
+	
 	public static void graph(int[][] times, int N, int K) {
 
 		System.out.println("Number Of nodes: " + N);
@@ -48,7 +49,7 @@ public class Main {
 
 		adj = (List<node>[]) new List[N + 1];
 		dist = new int[N + 1];
-		Arrays.fill(dist, 500);
+		Arrays.fill(dist, Integer.MAX_VALUE);
 
 		for (int i = 0; i <= N; i++)
 			adj[i] = new ArrayList<>();
@@ -56,6 +57,11 @@ public class Main {
 		for (int[] t : times) {
 			int src = t[0], dst = t[1], w = t[2];
 			adj[src].add(new node(dst, w));
+			
+			// Following lines of code make undirected graph, so you don't need perform n^2 operation in your matrix. 
+			// The purpose of this line is creating a undirected graph. Simply Uncommented this line will give you directed graph. 
+			
+			adj[dst].add(new node(src, w));
 		}
 
 		dijkstra(K, N);
@@ -67,23 +73,28 @@ public class Main {
 
 	public static void dijkstra(int src, int N) {
 
-		Set<Integer> visited = new HashSet<>();
-		PriorityQueue<node> pq = new PriorityQueue<>((a, b) -> (b.w - a.w));
+		Set<Integer> visited = new HashSet<>(); // to keep track of visited node you can use boolean array // boolean visited[]
+		
+		PriorityQueue<node> pq = new PriorityQueue<>((a, b) -> (b.weight - a.weight)); // lambda expression nothing but min-heap 
+		
+		// we are adding node onto Priority Queue based on their weight, since node is object, by using lambda expression we are saying add node onto Priority Queue based on their weight
+		
 		pq.add(new node(src, 0));
+		
 		dist[src] = 0;
 
 		while (!pq.isEmpty()) {
 
 			node n = pq.poll();
-			int u = n.u;
-			visited.add(u);
+			int u = n.dst;
+			visited.add(u);					// visited[u] = true;
 
 			for (node i : adj[u]) {
 
-				int v = i.u;
+				int v = i.dst;
 
-				if (dist[u] + i.w < dist[v]) {
-					dist[v] = dist[u] + i.w;
+				if (dist[u] + i.weight < dist[v]) {
+					dist[v] = dist[u] + i.weight;
 					pq.add(new node(v, dist[v]));
 				}
 
@@ -94,11 +105,11 @@ public class Main {
 	}
 
 	public static class node {
-		int u, w;
+		int dst, weight;
 
-		public node(int u, int w) {
-			this.u = u;
-			this.w = w;
+		public node(int dst, int weight) {
+			this.dst = dst;
+			this.weight = weight;
 		}
 	}
 

@@ -18,3 +18,4 @@ Problem solving is a big part of this course, Check LeetCode, Codeforce, CodeChe
 4. Binary Search Tree
 5. Max Heap	(Implemented by Using ArrayList<>()).
 6. Min Heap (Implemented by Using ArrayList<>()).
+7. Dijsktra Single source Shortest Path Algorithm. 
