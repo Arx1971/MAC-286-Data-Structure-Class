@@ -23,7 +23,7 @@ public class Main {
 
 	@SuppressWarnings("unchecked")
 
-	public static void graph(int[][] times, int N, int K) {
+	public static void graph(int[][] mat, int N, int K) {
 
 		System.out.println("Number Of nodes: " + N);
 		System.out.println("Source Vertex: " + K);
@@ -35,7 +35,7 @@ public class Main {
 		for (int i = 0; i <= N; i++)
 			adj[i] = new ArrayList<>();
 
-		for (int[] t : times) {
+		for (int[] t : mat) {
 			int src = t[0], dst = t[1], w = t[2];
 			adj[src].add(new node(dst, w));
 
