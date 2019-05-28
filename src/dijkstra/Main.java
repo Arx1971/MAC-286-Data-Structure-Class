@@ -11,10 +11,13 @@ public class Main {
 
 	public static void main(String args[]) {
 
-		// time complexity of this code is O(V log E), v is number of vertices and E is
+		// time complexity of this code is O(E log V), v is number of vertices and E is
 		// number of edges.
 		// {src, dst, weight}
 		graph(new int[][] { { 2, 1, 1 }, { 2, 3, 5 }, { 3, 4, 1 }, { 4, 2, 1 }, { 1, 4, 1 } }, 4, 2);
+
+		graph(new int[][] { { 1, 2, 8 }, { 1, 3, 11 }, { 2, 7, 9 }, { 3, 4, 15 }, { 3, 6, 29 }, { 3, 5, 30 },
+				{ 5, 6, 25 }, { 4, 7, 10 }, { 4, 8, 20 }, { 7, 8, 21 }, { 6, 8, 26 } }, 8, 2);
 
 	}
 
@@ -52,7 +55,7 @@ public class Main {
 		dijkstra(K, N);
 
 		for (int i = 1; i <= N; i++)
-			System.out.println(i + " -> " + dist[i]);
+			System.out.println(K + " -> " + i + " -> " + dist[i]);
 
 	}
 
