@@ -2,7 +2,7 @@
 Adnan Rahin
 
 Room: B208, B - Building  
-Email: arx.1971@gmail.com
+Email: adnan.rahin13@gmail.com
 # Tutoring Hours: Tuesday (10am - 5pm), Wednesday (10am - 7pm) && Thursday(1pm - 2pm).
 
 Also I am available all day in B - 208 (Tuesday, Wednesday) Feel free to stop by anytime, Makesure send me an Email. 
